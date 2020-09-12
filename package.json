@@ -1,0 +1,19 @@
+{
+  "name": "server-snack-time-7",
+  "version": "1.0.0",
+  "description": "Servidor do Snack (Time 7)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuriloliveira/server-snack-time-7.git"
+  },
+  "author": "Time 7",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yuriloliveira/server-snack-time-7/issues"
+  },
+  "homepage": "https://github.com/yuriloliveira/server-snack-time-7#readme"
+}
