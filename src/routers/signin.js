@@ -1,8 +1,8 @@
 const express = require("express");
 const jwt = require("jsonwebtoken");
 
-const middlewares = require("./middlewares/");
-const buildResponse = require("./utils/response").buildResponse;
+const middlewares = require("../middlewares/");
+const buildResponse = require("../utils/response").buildResponse;
 
 const JWT_SECRET = "secret";
 const TOKEN_EXPIRATION_DAY_COUNT = 7;
