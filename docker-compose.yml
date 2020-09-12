@@ -1,0 +1,31 @@
+version: "3.7"
+services:
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    container_name: mysql-container
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: techneesafra
+    volumes:
+      - ./src/db/data:/var/lib/mysql
+      - ./src/db/sql_scripts:/var/lib/sql_scripts
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+  api:
+    build: "."
+    container_name: nodejs-container
+    restart: always
+    volumes:
+      - ./:/home/node/app
+    ports:
+      - "3001:3001"
+    depends_on:
+      - db

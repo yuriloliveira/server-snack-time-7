@@ -4,7 +4,7 @@
   "description": "Servidor do Snack (Time 7)",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "nodemon ./src/index.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,10 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "jsonwebtoken": "^8.5.1"
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.16.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
   }
 }
