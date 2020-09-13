@@ -1,7 +1,7 @@
 const express = require("express");
 const jwt = require("jsonwebtoken");
 
-const middlewares = require("../middlewares/");
+const middlewares = require("../middlewares/").default;
 const buildResponse = require("../utils/response").buildResponse;
 
 const JWT_SECRET = "secret";
@@ -41,6 +41,7 @@ router.post("/signin", (req, res) => {
     res.status(response.status).json(response);
   } catch (err) {
     console.error(err);
+    next(err);
   }
 });
 

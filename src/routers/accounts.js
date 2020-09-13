@@ -2,7 +2,7 @@ const express = require("express");
 const jwt = require("jsonwebtoken");
 
 const accountService = require("../services/accounts");
-const middlewares = require("../middlewares/");
+const middlewares = require("../middlewares/").default;
 const buildResponse = require("../utils/response").buildResponse;
 
 const router = express.Router();
@@ -16,13 +16,7 @@ router.post("/accounts", async (req, res) => {
     res.status(response.status).json(response);
   } catch (err) {
     console.error(err);
-    const response = buildResponse(
-      null,
-      500,
-      false,
-      err.message || "Não foi possível criar a conta"
-    );
-    res.status(response.status).json(response);
+    next(err);
   }
 });
 
@@ -35,13 +29,7 @@ router.get("/accounts/:accountId", async (req, res) => {
     res.status(response.status).json(response);
   } catch (err) {
     console.error(err);
-    const response = buildResponse(
-      null,
-      500,
-      false,
-      err.message || "Não foi possível criar a conta"
-    );
-    res.status(response.status).json(response);
+    next(err);
   }
 });
 
