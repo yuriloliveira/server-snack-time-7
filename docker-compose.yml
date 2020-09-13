@@ -18,14 +18,3 @@ services:
     restart: always
     ports:
       - 8080:8080
-
-  api:
-    build: "."
-    container_name: nodejs-container
-    restart: always
-    volumes:
-      - ./:/home/node/app
-    ports:
-      - "3001:3001"
-    depends_on:
-      - db
