@@ -6,7 +6,7 @@ async function createAccount(accountInfo) {
     [accountInfo.name, accountInfo.doc_number]
   );
 
-  return findByAccountId(result.insertId);
+  return findAccountById(result.insertId);
 }
 
 async function findAccountById(accountId) {
