@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.use(middlewares);
 
-router.get("/roulette/questions/random", async (req, res) => {
+router.get("/roulette/questions/random", async (req, res, next) => {
   try {
     const { accountId } = req.params;
     const result = await rouletteService.findRandomQuestion(accountId);
@@ -23,7 +23,7 @@ router.get("/roulette/questions/random", async (req, res) => {
 
 router.post(
   "/roulette/questions/:questionId/alternatives/:alternativeId",
-  async (req, res) => {
+  async (req, res, next) => {
     try {
       const { questionId, alternativeId } = req.params;
       const isCorrectAnswer = await rouletteService.answerQuestion(

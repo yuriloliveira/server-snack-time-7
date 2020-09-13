@@ -11,7 +11,7 @@ const router = express.Router();
 
 router.use(middlewares);
 
-router.post("/signin", (req, res) => {
+router.post("/signin", (req, res, next) => {
   try {
     const { email, password } = req.body;
 

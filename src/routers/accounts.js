@@ -9,7 +9,7 @@ const router = express.Router();
 
 router.use(middlewares);
 
-router.post("/accounts", async (req, res) => {
+router.post("/accounts", async (req, res, next) => {
   try {
     const results = await accountService.createAccount(req.body);
     const response = buildResponse(results, 201, true);
@@ -20,7 +20,7 @@ router.post("/accounts", async (req, res) => {
   }
 });
 
-router.get("/accounts/:accountId", async (req, res) => {
+router.get("/accounts/:accountId", async (req, res, next) => {
   try {
     const { accountId } = req.params;
     const result = await accountService.findAccountById(accountId);
