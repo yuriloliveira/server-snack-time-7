@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/yuriloliveira/server-snack-time-7#readme",
   "dependencies": {
+    "@sentry/node": "^5.23.0",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",

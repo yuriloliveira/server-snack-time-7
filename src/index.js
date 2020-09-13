@@ -1,4 +1,5 @@
 const express = require("express");
+const Sentry = require("@sentry/node");
 
 const signinRouter = require("./routers/signin");
 const accountRouter = require("./routers/accounts");
@@ -10,12 +11,18 @@ const errorHandlingMiddleware = require("./middlewares/index").errorHandling;
 
 const app = express();
 
+Sentry.init({
+  dsn: process.env.SENTRY_DNS,
+});
+
+app.use(Sentry.Handlers.requestHandler());
 app.use(signinRouter);
 app.use(accountRouter);
 app.use(accountBalanceRouter);
 app.use(accountExperienceHistoryRouter);
 app.use(completeAccountRouter);
 app.use(rouletteRouter);
+app.use(Sentry.Handlers.errorHandler());
 app.use(errorHandlingMiddleware);
 
 app.listen(3001);
